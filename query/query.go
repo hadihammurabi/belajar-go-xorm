@@ -1,5 +1,8 @@
 package query
 
+// DOCS:
+// https://gobook.io/read/gitea.com/xorm/manual-en-US/chapter-05/4.find.html
+
 import (
 	"belajar-go-xorm/model"
 	"errors"
@@ -24,6 +27,16 @@ func Get(engine xorm.EngineInterface) (*model.User, error) {
 func Find(engine xorm.EngineInterface) ([]*model.User, error) {
 	users := make([]*model.User, 0)
 	err := engine.Find(&users)
+	if err != nil {
+		return nil, err
+	}
+
+	return users, nil
+}
+
+func FindWhere(engine xorm.EngineInterface) ([]*model.User, error) {
+	users := make([]*model.User, 0)
+	err := engine.Where("id > ?", "3").Find(&users)
 	if err != nil {
 		return nil, err
 	}

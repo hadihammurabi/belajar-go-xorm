@@ -39,10 +39,16 @@ func main() {
 	}
 	log.Println("get result =>", getResult)
 
-	findResult, err := query.Get(conn)
+	findResult, err := query.Find(conn)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	log.Println("find result =>", findResult)
+
+	findWhereResult, err := query.FindWhere(conn)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	log.Println("find where result =>", findWhereResult)
 
 }
