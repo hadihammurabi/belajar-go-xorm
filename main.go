@@ -14,7 +14,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	log.Println("connected")
+	log.Println("connection defined")
 
 	err = sync.Sync(conn)
 	if err != nil {

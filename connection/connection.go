@@ -17,6 +17,7 @@ func Connect() (*xorm.EngineGroup, error) {
 		return nil, err
 	}
 
+	engine.SetPolicy(xorm.LeastConnPolicy())
 	engine.SetMapper(names.GonicMapper{})
 	return engine, err
 }
