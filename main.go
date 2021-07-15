@@ -5,6 +5,7 @@ import (
 
 	"belajar-go-xorm/connection"
 	"belajar-go-xorm/insert"
+	"belajar-go-xorm/query"
 	"belajar-go-xorm/sync"
 )
 
@@ -32,4 +33,9 @@ func main() {
 	}
 	log.Println("inserted =>", affecteds)
 
+	getResult, err := query.Get(conn)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	log.Println("get result =>", getResult)
 }
