@@ -12,5 +12,10 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+
+	err = sync.Sync(conn)
+	if err != nil {
+		log.Fatalln(err)
+	}
 	log.Println(conn)
 }
