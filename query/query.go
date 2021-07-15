@@ -20,3 +20,13 @@ func Get(engine xorm.EngineInterface) (*model.User, error) {
 
 	return user, nil
 }
+
+func Find(engine xorm.EngineInterface) ([]*model.User, error) {
+	users := make([]*model.User, 0)
+	err := engine.Find(&users)
+	if err != nil {
+		return nil, err
+	}
+
+	return users, nil
+}

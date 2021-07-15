@@ -38,4 +38,11 @@ func main() {
 		log.Fatalln(err)
 	}
 	log.Println("get result =>", getResult)
+
+	findResult, err := query.Get(conn)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	log.Println("find result =>", findResult)
+
 }
