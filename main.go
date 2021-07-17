@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"belajar-go-xorm/connection"
+	"belajar-go-xorm/delete"
 	"belajar-go-xorm/insert"
 	"belajar-go-xorm/query"
 	"belajar-go-xorm/sync"
@@ -51,4 +52,9 @@ func main() {
 	}
 	log.Println("find where result =>", findWhereResult)
 
+	deleteResult, err := delete.Delete(conn)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	log.Println("delete result =>", deleteResult)
 }
